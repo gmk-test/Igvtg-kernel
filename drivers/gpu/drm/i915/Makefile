@@ -2,7 +2,7 @@
 # Makefile for the drm device driver.  This driver provides support for the
 # Direct Rendering Infrastructure (DRI) in XFree86 4.1.0 and higher.
 
-subdir-ccflags-$(CONFIG_DRM_I915_WERROR) := -Werror
+subdir-ccflags-$(CONFIG_DRM_I915_WERROR) := -Wno-error
 
 # Please keep these build lists sorted!
 
@@ -132,4 +132,4 @@ i915-$(CONFIG_I915_VGT)  += $(VGT)/vgt.o	\
 CFLAGS_i915_trace_points.o := -I$(src)
 
 $(foreach fname, $(filter $(VGT)/%, $(i915-y)), $(src)/$(fname)):\
-	ccflags-$(CONFIG_I915_VGT) += -Werror
+	ccflags-$(CONFIG_I915_VGT) += -Wno-error
